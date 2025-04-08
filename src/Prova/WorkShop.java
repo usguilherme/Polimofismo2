@@ -5,8 +5,9 @@ import java.util.ArrayList;
 public class WorkShop extends Evento {
     private int duracao;
 
-    public WorkShop(String titulo, String idEvento, String descricao, String data, int qntMaxParticipantes) {
-        super(titulo, idEvento, descricao, data, qntMaxParticipantes);
+    public WorkShop(String titulo,  String descricao, String data, int qntMaxParticipantes, int duracao) {
+        super(titulo,descricao, data, qntMaxParticipantes);
+        this.duracao = duracao;
     }
 
     @Override
@@ -43,15 +44,6 @@ public class WorkShop extends Evento {
         super.setTitulo(titulo);
     }
 
-    @Override
-    public String getIdEvento() {
-        return super.getIdEvento();
-    }
-
-    @Override
-    public void setIdEvento(String idEvento) {
-        super.setIdEvento(idEvento);
-    }
 
     @Override
     public String getDescricao() {

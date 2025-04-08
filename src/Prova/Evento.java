@@ -5,15 +5,13 @@ import java.util.List;
 
 public abstract class Evento {
     private String titulo;
-    private String idEvento;
     private String descricao;
     private String data;
     private int qntMaxParticipantes;
     private List<Estudante> participantes;
 
-    public Evento(String titulo, String idEvento, String descricao, String data, int qntMaxParticipantes) {
+    public Evento(String titulo, String descricao, String data, int qntMaxParticipantes) {
         this.titulo = titulo;
-        this.idEvento = idEvento;
         this.descricao = descricao;
         this.data = data;
         this.qntMaxParticipantes = qntMaxParticipantes;
@@ -25,7 +23,7 @@ public abstract class Evento {
             throw new IllegalArgumentException("Participante já cadastrado no evento");
         }
         if (participantes.size() >= qntMaxParticipantes) {
-            throw new IllegalArgumentException("Quantidade de participantes excedes limite do evento");
+            throw new IllegalArgumentException("Quantidade de participantes excede o limite do evento");
         }
         participantes.add(estudante);
         estudante.setPontos(calcularPontuacao());
@@ -40,7 +38,6 @@ public abstract class Evento {
         }
         return nomes;
     }
-
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -58,14 +55,6 @@ public abstract class Evento {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
-    }
-
-    public String getIdEvento() {
-        return idEvento;
-    }
-
-    public void setIdEvento(String idEvento) {
-        this.idEvento = idEvento;
     }
 
     public String getDescricao() {
@@ -93,8 +82,9 @@ public abstract class Evento {
     }
 
     public ArrayList<Estudante> getParticipantes() {
-        return (ArrayList<Estudante>) participantes;
+        return new ArrayList<>(participantes);
     }
+
 
     public void setParticipantes(ArrayList<Estudante> participantes) {
         this.participantes = participantes;

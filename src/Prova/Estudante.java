@@ -38,7 +38,7 @@ public class Estudante {
         this.email = email;
     }
 
-    public int getPontos(int i) {
+    public int getPontos() {
         return pontos;
     }
 

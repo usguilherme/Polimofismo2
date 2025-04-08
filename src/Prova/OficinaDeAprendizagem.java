@@ -6,8 +6,8 @@ public class OficinaDeAprendizagem extends Evento {
     private int duracao;
     private boolean certificacao;
 
-    public OficinaDeAprendizagem(String titulo, String idEvento, String descricao, String data, int qntMaxParticipantes, int duracao, boolean certificacao) {
-        super(titulo, idEvento, descricao, data, qntMaxParticipantes);
+    public OficinaDeAprendizagem(String titulo,String descricao, String data, int qntMaxParticipantes, int duracao, boolean certificacao) {
+        super(titulo,descricao, data, qntMaxParticipantes);
         this.duracao = duracao;
         this.certificacao = certificacao;
     }
@@ -56,16 +56,6 @@ public class OficinaDeAprendizagem extends Evento {
     @Override
     public void setTitulo(String titulo) {
         super.setTitulo(titulo);
-    }
-
-    @Override
-    public String getIdEvento() {
-        return super.getIdEvento();
-    }
-
-    @Override
-    public void setIdEvento(String idEvento) {
-        super.setIdEvento(idEvento);
     }
 
     @Override
