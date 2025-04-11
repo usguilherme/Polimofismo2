@@ -1,6 +1,6 @@
 package Prova;
 
-import java.util.HashMap;
+import java.util.*;
 
 public class AgendaFacil {
     private final HashMap<String,Estudante> listaEstudantes;
@@ -35,7 +35,19 @@ public class AgendaFacil {
         }
     }
 
-    //public String[] listarEstudantes() {} Faltou esse método
+    public String[] listarEstudantes() {
+        List<Estudante> estudantesList = new ArrayList<>(listaEstudantes.values());
+        int cont = 0;
+        String[] listaNomes = new String[estudantesList.size()];
+        Collections.sort(estudantesList, (e1,e2) -> Integer.compare(e2.getPontos(), e1.getPontos()));
+        for (Estudante estudante : estudantesList) {
+            listaNomes[cont] = estudante.getNome();
+            cont++;
+        }
+        return listaNomes;
+
+
+    }
 
     public int cadastrarPalestra(String titulo, String descricao, String data, int maxParticipantes) {
         if (titulo == null || titulo.isEmpty() || descricao == null || descricao.isEmpty()) {
